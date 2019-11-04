@@ -1,0 +1,71 @@
+
+<h1 style="text-align: center;">Eat-Da-Burger!</h1>
+<ul>
+  {{#each burgers}}
+    <li>
+      <p>
+        {{this.id}}. {{this.burger_name}}
+
+        <button data-id="{{this.id}}" devoured="{{this.devoured}}"class="devoured" id ="condition">Devoured it!</button>
+      </p>
+    </li>
+  {{/each}}
+</ul> 
+<ul>
+  {{#each burgers}} 
+     {{#unless devoured}}
+
+  {{/unless}}
+  {{/each}}
+</ul> 
+<form id="addburger" class="button-size" style="text-align: center;">
+	<textarea type="text" name="burger" id = "burger_name"></textarea>
+	<button type="submit">Submit</button>
+  <p>Enter a burger you want to eat click "submit" button</p>
+</form>
+
+<script type="text/javascript">
+  $("#addburger").on("submit", function(event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+
+    var newBurger = {
+      burger: $("#burger_name").val().trim()
+    };
+
+    // Send the POST request.
+    $.ajax("/api/burgers", {
+      type: "POST",
+      data: newBurger
+    }).then(
+      function() {
+        console.log("added new burger");
+              location.reload();
+      }
+    );
+  });
+  $(document).on("click",".devoured",function(event){
+    event.preventDefault();
+        var id = $(this).data("id");
+        console.log(id);
+        var newStates = $(this).data("devoured")
+    var updateBurger = {
+       burger : newStates
+    };
+    //Send Put request.
+    $.ajax( "api/burgers/" + id,{
+      type: "PUT",
+      data: updateBurger
+    }).then(
+      function() {
+        console.log("devoured");
+        location.reload();
+      }
+    );
+  })
+
+
+</script>
+
+
+
