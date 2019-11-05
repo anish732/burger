@@ -5,8 +5,9 @@
     <li>
       <p>
         {{this.id}}. {{this.burger_name}}
-
-        <button data-id="{{this.id}}" devoured="{{this.devoured}}"class="devoured" id ="condition">Devoured it!</button>
+        <button data-id="{{this.id}}" devoured="{{this.devoured}}"class="devoured" id ="condition">
+               		{{#if devoured}}Want more!{{else}}Devoured it!{{/if}}
+        </button>
       </p>
     </li>
   {{/each}}
