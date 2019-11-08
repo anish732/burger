@@ -1,6 +1,6 @@
-# ![](./views/burger2.jpg)
 
-### Eat-da-Burger!!!
+
+### ![](./views/burger2.jpg)<h1> *Eat-da-Burger!!*
 
 ### Overview:
 
