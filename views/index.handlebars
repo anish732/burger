@@ -1,24 +1,43 @@
-
-  {{#each burgers}}
-    <div class="container-burger_list">
-      <p>
-        {{this.id}}. {{this.burger_name}}
-        <button data-id="{{this.id}}" devoured="{{this.devoured}}"class="devoured" id ="condition">
-               		{{#if devoured}}Want more!{{else}}Devoured it!{{/if}}
-        </button>
-      </p>
+<h1 class="head">Eat da Burger!</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-5">
+      {{#each burgers}}
+      {{#unless this.devoured}}
+      <div class="container-burger_list">
+        <p>
+          {{this.id}}. {{this.burger_name}}
+          <button data-id="{{this.id}}" devoured="{{this.devoured}}" class="devoured" id="condition">
+            Devoured it!
+          </button>
+        </p>
+      </div>
+      {{/unless}}
+      {{/each}}
     </div>
-  {{/each}}
+    <div class="col-lg-3"></div>
+    <div class="col-lg-4 container-burger_list ">
+          {{#each burgers}}
+          {{#if this.devoured}}
+          <p>
+            {{this.id}}. {{this.burger_name}}
+            <button data-id="{{this.id}}" devoured="{{this.devoured}}" class="devoured delete" id="condition">
+              Delete
+            </button>
+          </p>
+        {{/if}}
+        {{/each}}
+    </div>
+</div>
 
-
-<form id="addburger" class="button-size" style="text-align: center;">
-	<textarea type="text" name="burger" id = "burger_name" rows="3" cols="32"></textarea><br><br>
-	<button type="submit" class="add">Submit</button>
-  <p>Enter a burger you want to eat click "submit" button</p>
-</form>
+  <form id="addburger" class="button-size" style="text-align: center;">
+    <textarea type="text" name="burger" id="burger_name" rows="2" cols="32"></textarea><br><br>
+    <button type="submit" class="add">Submit</button>
+    <h5>Enter a burger you want to eat click "submit" button</h5>
+  </form>
 
 <script type="text/javascript">
-  $("#addburger").on("submit", function(event) {
+  $("#addburger").on("submit", function (event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
@@ -31,34 +50,45 @@
       type: "POST",
       data: newBurger
     }).then(
-      function() {
+      function () {
         console.log("added new burger");
-              location.reload();
+        location.reload();
       }
     );
   });
-  $(document).on("click",".devoured",function(event){
+  $(document).on("click", ".devoured", function (event) {
     event.preventDefault();
-        var id = $(this).data("id");
-        console.log(id);
-        var newStates = $(this).data("devoured")
+    var id = $(this).data("id");
+    console.log(id);
+    var newStates = $(this).data("devoured")
     var updateBurger = {
-       burger : newStates
+      burger: newStates
     };
     //Send Put request.
-    $.ajax( "api/burgers/" + id,{
+    $.ajax("api/burgers/" + id, {
       type: "PUT",
       data: updateBurger
     }).then(
-      function() {
+      function () {
         console.log("devoured");
         location.reload();
       }
     );
+  });
+
+  $(".delete").on("click", function(event){
+    var id = $(this).data("id");
+
+    //send delete request
+    $.ajax("/api/burgers/" + id, {
+      type: "DELETE"
+    }).then(
+      function(){
+        console.log("delete burger", id);
+        location.reload();
+      }
+    )
   })
 
 
 </script>
-
-
-

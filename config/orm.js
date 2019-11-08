@@ -23,8 +23,7 @@ function printQuestionMarks(num) {
         if (typeof value === "string" && value.indexOf(" ") >= 0) {
           value = "'" + value + "'";
         }
-        // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
-        // e.g. {sleepy: true} => ["sleepy=true"]
+        // e.g. {devoured: true} => ["devoured = true"]
         arr.push(key + "=" + value);
       }
     }
@@ -80,6 +79,21 @@ var orm = {
             cb(result);
         });
     },
+
+    deleteOne : function(table, condition, cb){
+      queryString = "DELETE FROM " + table;
+      queryString += " WHERE ";
+      queryString += condition;
+
+      connection.query(queryString, function(err,result){
+        if(err) {
+          throw err;
+        }
+        cb(result);
+        console.log(result)
+      })
+
+    }
 }
 
 module.exports = orm;

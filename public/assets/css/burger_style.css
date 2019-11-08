@@ -1,9 +1,9 @@
 body{
     background-color: burlywood;
     background-image: url("burger.jpg");
-    background-position:top;
+    background-position:center;
     background-repeat: no-repeat;
-    image-rendering: crisp-edges;
+    
 }
 .add{
     height: 45px;
@@ -15,8 +15,8 @@ body{
     border-color: darkorange;
 }
 .container-burger_list{
-    font-size: 22px;
-    margin-left: 25px;
+    font-size: 20px;
+    margin-top: 25px;
 }
 #condition{
     height: 45px;
@@ -28,7 +28,11 @@ body{
 }
 .head{
     text-align: center;
-    margin-top: -280px;
     color: darkred;
+    margin-top: 25px;
+    font-family: cursive;
     
+}
+#burger_name {
+    background-color: lightyellow;
 }
