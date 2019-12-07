@@ -1,6 +1,4 @@
-
-
-### ![](./views/burger2.jpg)<h1> *Eat-da-Burger!!*
+### ![](./views/burger2.jpg)<h1> _Eat-da-Burger!!_
 
 ### Overview:
 
@@ -10,9 +8,9 @@
 
 # ![](screenshot.png)
 
-
 ### Code:
-* When you add burger this handlebar code display burger with id and devoured button on the browser.
+
+- When you add burger this handlebar code display burger with id and devoured button on the browser.
 
       {{#each burgers}}
       {{#unless this.devoured}}
@@ -24,22 +22,17 @@
           </button>
         </p>
 
-
-
 ### Installation:
 
 **NPM install :**
 
-* Express
-* Express-handlebars
-* Router
-* MySQL
+- Express
+- Express-handlebars
+- Router
+- MySQL
 
 <p> run with : node server.js
 
-### Hosting on Heroku
+### Hosting on Heroku :
 
-
-
-
-
+## [Eat-da-burger](https://glacial-harbor-13375.herokuapp.com/)
