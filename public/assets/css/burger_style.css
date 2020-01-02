@@ -1,37 +1,44 @@
-body{
-    background-color: burlywood;
-    background-image: url("burger.jpg");
-    background-position:center;
-    background-repeat: no-repeat;
+body {
+  background-image: linear-gradient(to right bottom, #f0dfb6, #e79e9e);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 900px;
 }
-.add{
-    height: 45px;
-    width: 135px;
-    font-size: 22px;
-    background-color: green;
-    color: black;
-    border-radius: 11px;
-    border-color: darkorange;
-}
-.container-burger_list{
-    font-size: 20px;
-    margin-top: 25px;
-}
-#condition{
-    height: 45px;
-    width: 125px;
-    font-size: 16px;
-    border-color: brown;
-    border-radius: 11px;
 
+.container {
+  background-image: url("burger.jpg");
+  background-position: top;
+  background-repeat: no-repeat;
 }
-.head{
-    text-align: center;
-    color: darkred;
-    margin-top: 25px;
-    font-family: cursive;
-    
+.add {
+  height: 45px;
+  width: 135px;
+  font-size: 22px;
+  color: black;
+  border-radius: 11px;
+  background-image: linear-gradient(to left bottom, #e7c367, #aa0808);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.container-burger_list {
+  font-size: 20px;
+  margin-top: 25px;
+}
+#condition {
+  height: 45px;
+  width: 125px;
+  font-size: 16px;
+  border-color: brown;
+  border-radius: 11px;
+}
+.head {
+  text-align: center;
+  color: darkred;
+  margin-top: 25px;
+  font-family: cursive;
 }
 #burger_name {
-    background-color: lightyellow;
+  background-image: linear-gradient(to left bottom, #e7c367, #eeeeee);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
